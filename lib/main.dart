@@ -12,6 +12,6 @@ class BankAccount extends StatefulWidget {
 class _BankAccountState extends State<BankAccount> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp();
   }
 }
