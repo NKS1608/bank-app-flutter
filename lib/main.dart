@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'screens/MainScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(BankAccount());
 }
 
 class BankAccount extends StatefulWidget {
@@ -12,6 +13,13 @@ class BankAccount extends StatefulWidget {
 class _BankAccountState extends State<BankAccount> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Anarco Bank'),
+        ),
+        body: MainScreen(),
+      ),
+    );
   }
 }
