@@ -44,14 +44,36 @@ class MainScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: 65,
-                  color: Colors.yellow[800],
+                  height: 55,
+                  color: Color.fromARGB(255, 0, 255, 127),
+                  child: ListTile(
+                    leading: Icon(Icons.add),
+                    title: Text(
+                      'DEPOSITAR',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'Futura',
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Expanded(
                 child: Container(
-                  height: 65,
-                  color: Colors.yellow[800],
+                  height: 55,
+                  color: Color.fromARGB(255, 253, 57, 9),
+                  child: ListTile(
+                    leading: Icon(Icons.remove),
+                    title: Text(
+                      'SACAR',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'Futura',
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -14,6 +14,11 @@ class _BankAccountState extends State<BankAccount> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.grey.shade900,
+        primaryColor: Colors.grey.shade800,
+      ),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Anarco Bank'),
