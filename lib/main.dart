@@ -22,6 +22,10 @@ class _BankAccountState extends State<BankAccount> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Banco do Balocobaco S/A'),
+          leading: Icon(
+            Icons.account_balance_outlined,
+            size: 32,
+          ),
         ),
         body: MainScreen(),
       ),
