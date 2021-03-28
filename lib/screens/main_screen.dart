@@ -62,9 +62,7 @@ class _MainScreenState extends State<MainScreen> {
                     "h${transactions[index].date.minute.toString()}m";
 
                 return ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/icons/money-green.png'),
-                  ),
+                  leading: transactions[index].icon,
                   title: Text(
                     transactions[index].title,
                     style: TextStyle(
@@ -107,7 +105,7 @@ class _MainScreenState extends State<MainScreen> {
                       double value = r.nextDouble() * 999.99 + 0.01;
                       transactions.add(
                         Transaction(
-                          AssetImage('assets/icons/money-green.png'),
+                          Icon(Icons.add),
                           'DEPÓSITO',
                           DateTime.now(),
                           value,
@@ -120,9 +118,7 @@ class _MainScreenState extends State<MainScreen> {
                     height: 55,
                     color: Color.fromARGB(255, 0, 255, 127),
                     child: ListTile(
-                      leading: CircleAvatar(
-                        child: Image.asset('assets/icons/money-green.png'),
-                      ),
+                      leading: Icon(Icons.add),
                       title: Text(
                         'DEPOSITAR',
                         textAlign: TextAlign.start,
@@ -149,7 +145,7 @@ class _MainScreenState extends State<MainScreen> {
 
                       transactions.add(
                         Transaction(
-                          AssetImage('assets/icons/money-green.png'),
+                          Icon(Icons.remove),
                           'SAQUE',
                           DateTime.now(),
                           value,
@@ -162,9 +158,7 @@ class _MainScreenState extends State<MainScreen> {
                     height: 55,
                     color: Color.fromARGB(255, 253, 57, 9),
                     child: ListTile(
-                      leading: CircleAvatar(
-                        child: Image.asset('assets/icons/money-green.png'),
-                      ),
+                      leading: Icon(Icons.remove),
                       title: Text(
                         'SACAR',
                         textAlign: TextAlign.start,

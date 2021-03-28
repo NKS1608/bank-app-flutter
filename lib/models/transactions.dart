@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Transaction {
-  AssetImage icon;
+  Icon icon;
   String title;
   DateTime date;
   double value;
