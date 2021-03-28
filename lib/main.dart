@@ -21,7 +21,7 @@ class _BankAccountState extends State<BankAccount> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Anarco Bank'),
+          title: Text('Banco do Balocobaco S/A'),
         ),
         body: MainScreen(),
       ),
