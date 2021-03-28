@@ -63,7 +63,8 @@ class _MainScreenState extends State<MainScreen> {
 
                 return ListTile(
                   leading: CircleAvatar(
-                    child: Image.asset('assets/icons/money-green.png'),
+                    child: Image.asset('${transactions[index].icon}'),
+                    backgroundColor: Colors.transparent,
                   ),
                   title: Text(
                     transactions[index].title,
@@ -81,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   trailing: (transactions[index].value > 0)
                       ? Text(
-                          'R\$${transactions[index].value.toStringAsFixed(2).replaceAll('.', ',')}',
+                          'R\$ ${transactions[index].value.toStringAsFixed(2).replaceAll('.', ',')}',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Futura',
@@ -107,7 +108,7 @@ class _MainScreenState extends State<MainScreen> {
                       double value = r.nextDouble() * 999.99 + 0.01;
                       transactions.add(
                         Transaction(
-                          AssetImage('assets/icons/money-green.png'),
+                          'assets/icons/money-green.png',
                           'DEPÓSITO',
                           DateTime.now(),
                           value,
@@ -121,7 +122,9 @@ class _MainScreenState extends State<MainScreen> {
                     color: Color.fromARGB(255, 0, 255, 127),
                     child: ListTile(
                       leading: CircleAvatar(
-                        child: Image.asset('assets/icons/money-green.png'),
+                        child: Icon(Icons.arrow_upward,
+                            color: Colors.white, size: 28),
+                        backgroundColor: Colors.transparent,
                       ),
                       title: Text(
                         'DEPOSITAR',
@@ -149,7 +152,7 @@ class _MainScreenState extends State<MainScreen> {
 
                       transactions.add(
                         Transaction(
-                          AssetImage('assets/icons/money-green.png'),
+                          'assets/icons/money-red.png',
                           'SAQUE',
                           DateTime.now(),
                           value,
@@ -163,7 +166,12 @@ class _MainScreenState extends State<MainScreen> {
                     color: Color.fromARGB(255, 253, 57, 9),
                     child: ListTile(
                       leading: CircleAvatar(
-                        child: Image.asset('assets/icons/money-green.png'),
+                        child: Icon(
+                          Icons.arrow_downward,
+                          color: Colors.white,
+                          size: 28,
+                        ),
+                        backgroundColor: Colors.transparent,
                       ),
                       title: Text(
                         'SACAR',
