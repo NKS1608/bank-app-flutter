@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bankapp/models/transactions.dart';
+import 'package:bankapp/widgets/bank_text.dart';
 import 'package:flutter/material.dart';
 import '../models/transactions.dart';
 
@@ -22,26 +23,11 @@ class _MainScreenState extends State<MainScreen> {
           Padding(
             padding: EdgeInsets.all(15),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    'EXTRATO',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Futura',
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    'SALDO: R\$ ${ammount.toStringAsFixed(2).replaceAll('.', ',')}',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Futura',
-                    ),
-                  ),
+                BankText('EXTRATO'),
+                BankText(
+                  'SALDO: R\$ ${ammount.toStringAsFixed(2).replaceAll('.', ',')}',
                 ),
               ],
             ),
@@ -62,39 +48,31 @@ class _MainScreenState extends State<MainScreen> {
                     "h${transactions[index].date.minute.toString()}m";
 
                 return ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('${transactions[index].icon}'),
-                    backgroundColor: Colors.transparent,
-                  ),
-                  title: Text(
-                    transactions[index].title,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Futura',
-                    ),
-                  ),
-                  subtitle: Text(
-                    dateSlug,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Futura',
-                    ),
-                  ),
-                  trailing: (transactions[index].value > 0)
-                      ? Text(
-                          'R\$ ${transactions[index].value.toStringAsFixed(2).replaceAll('.', ',')}',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'Futura',
+                  leading: (transactions[index].value > 0)
+                      ? CircleAvatar(
+                          child: Container(
+                            child: Image.asset('${transactions[index].icon}'),
+                            width: 30,
                           ),
+                          backgroundColor: Colors.transparent,
                         )
-                      : Text(
-                          'Saldo Insuficiente',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'Futura',
+                      : CircleAvatar(
+                          child: Icon(
+                            Icons.cancel_outlined,
+                            color: Colors.red.shade900,
+                            size: 40,
                           ),
+                          backgroundColor: Colors.transparent,
                         ),
+                  title: (transactions[index].value > 0)
+                      ? BankText(transactions[index].title)
+                      : BankText('OPERAÇÃO NEGADA'),
+                  subtitle: BankText(dateSlug),
+                  trailing: (transactions[index].value > 0)
+                      ? BankText(
+                          'R\$ ${transactions[index].value.toStringAsFixed(2).replaceAll('.', ',')}',
+                        )
+                      : BankText('SALDO INSUFICIENTE'),
                 );
               },
             ),
@@ -126,13 +104,9 @@ class _MainScreenState extends State<MainScreen> {
                             color: Colors.white, size: 28),
                         backgroundColor: Colors.transparent,
                       ),
-                      title: Text(
+                      title: BankText(
                         'DEPOSITAR',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'Futura',
-                        ),
+                        size: 22,
                       ),
                     ),
                   ),
@@ -173,13 +147,9 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         backgroundColor: Colors.transparent,
                       ),
-                      title: Text(
+                      title: BankText(
                         'SACAR',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'Futura',
-                        ),
+                        size: 22,
                       ),
                     ),
                   ),
