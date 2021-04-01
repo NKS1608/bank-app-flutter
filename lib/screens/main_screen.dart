@@ -40,12 +40,12 @@ class _MainScreenState extends State<MainScreen> {
             child: ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (context, index) {
-                String dateSlug =
-                    "${transactions[index].date.day.toString().padLeft(2, '0')}"
-                    "/${transactions[index].date.month.toString().padLeft(2, '0')}"
-                    "/${transactions[index].date.year.toString()}"
-                    " ${transactions[index].date.hour.toString()}"
-                    "h${transactions[index].date.minute.toString()}m";
+                // String dateSlug =
+                //     "${transactions[index].date.day.toString().padLeft(2, '0')}"
+                //     "/${transactions[index].date.month.toString().padLeft(2, '0')}"
+                //     "/${transactions[index].date.year.toString()}"
+                //     " ${transactions[index].date.hour.toString()}"
+                //     "h${transactions[index].date.minute.toString()}m";
 
                 return ListTile(
                   leading: (transactions[index].value > 0)
@@ -67,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
                   title: (transactions[index].value > 0)
                       ? BankText(transactions[index].title)
                       : BankText('OPERAÇÃO NEGADA'),
-                  subtitle: BankText(dateSlug),
+                  subtitle: BankText('${transactions[index].date}'),
                   trailing: (transactions[index].value > 0)
                       ? BankText(
                           'R\$ ${transactions[index].value.toStringAsFixed(2).replaceAll('.', ',')}',
@@ -88,7 +88,7 @@ class _MainScreenState extends State<MainScreen> {
                         Transaction(
                           'assets/icons/money-green.png',
                           'DEPÓSITO',
-                          DateTime.now(),
+                          Transaction.randomDate(),
                           value,
                         ),
                       );
@@ -128,7 +128,7 @@ class _MainScreenState extends State<MainScreen> {
                         Transaction(
                           'assets/icons/money-red.png',
                           'SAQUE',
-                          DateTime.now(),
+                          Transaction.randomDate(),
                           value,
                         ),
                       );
